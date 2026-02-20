@@ -10,837 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        font-family: "Space Grotesk", system-ui, sans-serif;
-        background: #fff7e9;
-        color: #0c2f4e;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        margin: 0;
-      }
-
-      header {
-        width: 100%;
-        height: 246px;
-        margin: 0;
-        align-self: flex-start;
-        background: url("assets/Frame 2.png") center/cover no-repeat;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        padding: 0 120px 0 100px;
-      }
-
-      .header-ornament {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: auto;
-        max-height: 80%;
-        pointer-events: none;
-      }
-
-      .header-ornament.left {
-        left: 0;
-      }
-
-      .header-ornament.right {
-        right: 0;
-      }
-
-      .header-logo {
-        width: clamp(280px, 28vw, 360px);
-        height: auto;
-      }
-
-      .hero-text {
-        margin-left: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        color: #0c2f4e;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        text-align: center;
-        align-items: center;
-      }
-
-      .hero-text h1 {
-        font-family: "Inter", "Space Grotesk", system-ui, sans-serif;
-        font-weight: 700;
-        font-size: 32px;
-        line-height: 1.2;
-        letter-spacing: 0;
-        color: #104f61;
-      }
-
-      .hero-text h2 {
-        font-size: clamp(1rem, 2vw, 1.3rem);
-        color: #5d759d;
-        letter-spacing: 0.3em;
-      }
-
-      .cta-btn {
-        align-self: center;
-        padding: 12px 40px;
-        border-radius: 40px;
-        border: none;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        background: linear-gradient(90deg, #f2d487, #a87615);
-        color: #ffffff;
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-      }
-
-      .cta-btn.light-gradient {
-        background: linear-gradient(90deg, #a7ebff, #ffeed1, #ffeeac);
-        color: #0c4f61;
-        border: 1px solid #104f61;
-      }
-
-      main {
-        flex: 1;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .story-section {
-        width: 100%;
-        background: #fff7e9;
-        border-top: 1px solid rgba(12, 47, 78, 0.1);
-        border-radius: 0;
-        padding: clamp(32px, 5vw, 64px);
-        text-align: center;
-        color: #153652;
-      }
-
-      .story-section h3 {
-        text-transform: uppercase;
-        font-family: "Inter", "Space Grotesk", sans-serif;
-        font-weight: 700;
-        font-size: clamp(1.4rem, 3vw, 2rem);
-        color: #08355b;
-        margin-bottom: 12px;
-      }
-
-      .story-section p {
-        color: #30516b;
-        line-height: 1.6;
-        margin-bottom: 12px;
-      }
-
-      .story-section p.highlight {
-        font-weight: 600;
-        color: #0b4c6f;
-      }
-
-      .video-placeholder {
-        margin: 24px auto 32px;
-        width: min(100%, 720px);
-        aspect-ratio: 16 / 9;
-        position: relative;
-      }
-
-      .video-wrapper {
-        width: 100%;
-        height: 100%;
-        border-radius: 22px;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .video-wrapper video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .video-play {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 88px;
-        height: 88px;
-        border-radius: 50%;
-        border: none;
-        background: transparent;
-        display: grid;
-        place-items: center;
-        cursor: pointer;
-        transition: transform 0.2s ease, opacity 0.2s ease;
-      }
-
-      .video-play::before {
-        content: "";
-        width: 64px;
-        height: 64px;
-        background: url("assets/octicon_play-16.png") center/contain no-repeat;
-      }
-
-      .video-play::after {
-        content: "";
-        width: 0;
-        height: 0;
-      }
-
-      .video-play:hover {
-        transform: translate(-50%, -50%) scale(1.05);
-      }
-
-      .video-wrapper.playing .video-play {
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      .historico-section {
-        width: 100%;
-        background: #104f61;
-        color: #e8f6ff;
-        padding: clamp(8px, 2vw, 28px) clamp(24px, 8vw, 120px) 0 clamp(24px, 8vw, 120px);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .historico-inner {
-        max-width: 1120px;
-        margin: clamp(40px, 6vw, 120px) auto 0;
-        position: relative;
-        display: flex;
-        align-items: center;
-        gap: clamp(24px, 6vw, 60px);
-        flex-wrap: nowrap;
-      }
-
-      .historico-text {
-        max-width: 520px;
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        margin-top: 0;
-        flex: 1;
-      }
-
-      .historico-text .lead {
-        font-size: 1rem;
-        color: #e1f1ff;
-      }
-
-      .historico-text .subhead {
-        font-weight: 600;
-        margin-top: 10px;
-      }
-
-      .historico-text .footnote {
-        margin-top: 6px;
-        font-weight: 600;
-      }
-
-      .historico-book {
-        position: relative;
-        margin-left: auto;
-        width: min(620px, 60vw);
-        margin-right: calc(-1 * clamp(24px, 8vw, 120px));
-        flex: 0 0 auto;
-      }
-
-      .historico-book img {
-        width: 100%;
-        height: auto;
-      }
-
-      .historico-text h3 {
-        font-family: "Inter", "Space Grotesk", sans-serif;
-        font-weight: 700;
-        font-size: clamp(1.6rem, 3vw, 2.2rem);
-        text-transform: uppercase;
-        margin-bottom: 16px;
-      }
-
-      .historico-text p {
-        line-height: 1.7;
-        margin-bottom: 12px;
-        color: #cfe8f3;
-      }
-
-      .historico-list {
-        list-style: none;
-        margin-top: 8px;
-      }
-
-      .historico-list li {
-        margin-bottom: 6px;
-        display: flex;
-        gap: 10px;
-        align-items: baseline;
-        font-weight: 600;
-        text-transform: capitalize;
-      }
-
-      .historico-list li::before {
-        content: "•";
-        color: #6fe3ff;
-        font-size: 1.2rem;
-      }
-
-      .historico-card {
-        position: relative;
-        z-index: 2;
-        margin: clamp(40px, 6vw, 90px) auto -120px;
-        max-width: min(960px, 92%);
-        background: linear-gradient(180deg, #104f61 0%, #71eff5 100%);
-        border-radius: 34px;
-        padding: clamp(40px, 5vw, 72px);
-        text-align: center;
-        color: #ffffff;
-        box-shadow: 0 28px 60px rgba(0, 0, 0, 0.28);
-        min-height: clamp(260px, 40vw, 360px);
-      }
-
-      .historico-card h4 {
-        text-transform: uppercase;
-        font-size: clamp(1.2rem, 2.4vw, 1.6rem);
-        letter-spacing: 0.08em;
-        margin-bottom: 28px;
-      }
-
-      .historico-card p {
-        color: #f3fbff;
-        margin-bottom: 28px;
-      }
-
-      .historico-icons {
-        display: flex;
-        flex-direction: column;
-        gap: 28px;
-        margin-bottom: 24px;
-      }
-
-      .historico-icons .icon-row {
-        display: flex;
-        justify-content: center;
-        gap: 40px;
-        flex-wrap: wrap;
-      }
-
-      .historico-icons span {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        font-size: 0.92rem;
-        text-transform: uppercase;
-        color: #ffffff;
-        letter-spacing: 0.05em;
-      }
-
-      .historico-icons span::before {
-        content: "✳";
-        color: #ffe56f;
-      }
-
-      .historico-photo {
-        margin-top: clamp(16px, 3vw, 32px);
-        width: 100vw;
-        height: clamp(220px, 35vw, 420px);
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-        overflow: hidden;
-        margin-bottom: 0;
-      }
-
-      .historico-photo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .faixa-suave {
-        background: #faf4eb;
-        padding: clamp(48px, 6vw, 110px) clamp(32px, 6vw, 120px);
-        color: #1f3d4f;
-        display: flex;
-        flex-direction: column;
-        gap: clamp(32px, 5vw, 64px);
-      }
-
-      .faixa-content {
-        display: flex;
-        flex-wrap: wrap;
-        gap: clamp(32px, 5vw, 72px);
-        align-items: stretch;
-      }
-
-      .faixa-left {
-        flex: 1 1 320px;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        text-align: left;
-        align-items: flex-start;
-        max-width: 420px;
-        margin: 0 auto;
-        margin-top: clamp(24px, 4vw, 80px);
-      }
-
-      .faixa-left h4 {
-        font-size: clamp(1.3rem, 2.8vw, 1.9rem);
-        text-transform: uppercase;
-        width: 100%;
-      }
-
-      .faixa-left small {
-        font-weight: 600;
-        color: #0c4f61;
-        display: block;
-        width: 100%;
-      }
-
-      .faixa-left p {
-        line-height: 1.6;
-        color: #3d5467;
-        max-width: 340px;
-        width: 100%;
-        margin-top: clamp(12px, 2.4vw, 32px);
-        margin-bottom: clamp(32px, 5vw, 56px);
-      }
-
-      .faixa-left .cta-btn {
-        align-self: flex-start;
-        margin-top: clamp(4px, 1vw, 12px);
-      }
-
-      @media (min-width: 1024px) {
-        .faixa-left p {
-          margin-top: clamp(24px, 3vw, 48px);
-          margin-bottom: clamp(10px, 1.8vw, 24px);
-        }
-
-        .faixa-left .cta-btn {
-          margin-top: clamp(0px, 0.5vw, 8px);
-        }
-      }
-
-      .faixa-right {
-        flex: 1 1 320px;
-        display: flex;
-        flex-direction: column;
-        gap: 28px;
-        max-width: 420px;
-      }
-
-      .faixa-list h5 {
-        font-size: 1rem;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        margin-bottom: 8px;
-      }
-
-      .faixa-list ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      .faixa-list li {
-        margin-bottom: 6px;
-        color: #3a5163;
-      }
-
-      .faixa-book {
-        display: grid;
-        grid-template-columns: minmax(240px, 1fr) minmax(320px, 420px);
-        align-items: flex-start;
-        gap: clamp(24px, 5vw, 64px);
-        margin-top: -40px;
-      }
-
-      .faixa-book img {
-        width: 100%;
-        height: auto;
-        justify-self: start;
-      }
-
-      .faixa-book article {
-        text-align: left;
-        color: #1f3d4f;
-        max-width: 420px;
-        margin-left: 0;
-        justify-self: start;
-        margin-top: clamp(130px, 9vw, 210px);
-      }
-
-      .faixa-book article h4 {
-        font-size: clamp(1.3rem, 2.6vw, 1.8rem);
-        margin-bottom: 12px;
-      }
-
-      .faixa-book article p {
-        line-height: 1.7;
-        color: #3a5163;
-      }
-
-      .faixa-quem {
-        margin-top: clamp(48px, 7vw, 120px);
-        text-align: center;
-        color: #0c4f61;
-      }
-
-      .faixa-quem h3 {
-        font-size: clamp(1.4rem, 2.8vw, 2.2rem);
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        margin-bottom: clamp(24px, 5vw, 56px);
-      }
-
-      .faixa-quem-grid {
-        display: grid;
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-        gap: clamp(24px, 6vw, 64px);
-        justify-items: center;
-        margin-bottom: clamp(28px, 6vw, 64px);
-      }
-
-      .faixa-quem-item {
-        max-width: 220px;
-        color: #0c4f61;
-        font-size: 0.98rem;
-        line-height: 1.5;
-        grid-column: span 2;
-      }
-
-      .faixa-quem-item:nth-child(4) {
-        grid-column: 2 / span 2;
-      }
-
-      .faixa-quem-item:nth-child(5) {
-        grid-column: 4 / span 2;
-      }
-
-      .faixa-quem-item img {
-        width: 56px;
-        height: 56px;
-        margin-bottom: 16px;
-      }
-
-      .faixa-quem-footer {
-        font-size: clamp(1.1rem, 2.2vw, 1.6rem);
-        color: #0c4f61;
-      }
-
-      .planos-section {
-        background: #f6fdff;
-        padding: clamp(48px, 8vw, 120px) clamp(24px, 6vw, 120px);
-      }
-
-      .planos-inner {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: clamp(32px, 6vw, 56px);
-      }
-
-      .plano-card {
-        position: relative;
-        width: min(820px, 100%);
-        background: linear-gradient(135deg, #b9f0ff 0%, #e6fbff 65%, #ffffff 100%);
-        border-radius: 18px;
-        padding: clamp(28px, 5vw, 48px);
-        border: 1px solid rgba(12, 79, 97, 0.25);
-        box-shadow: 0 16px 40px rgba(12, 79, 97, 0.12);
-      }
-
-      .plano-card.presencial {
-        background: linear-gradient(135deg, #e6ffb8 0%, #ecffe3 55%, #f6fdff 100%);
-      }
-
-      .plano-badges {
-        position: absolute;
-        top: -18px;
-        left: 32px;
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .plano-badge {
-        background: #6fe6ff;
-        color: #0c4f61;
-        font-weight: 700;
-        font-size: 0.85rem;
-        letter-spacing: 0.08em;
-        padding: 8px 22px;
-        border-radius: 999px;
-        border: 1px solid rgba(12, 79, 97, 0.35);
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .plano-badge.online::before {
-        content: "";
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: #39c54a;
-        box-shadow: 0 0 0 3px rgba(57, 197, 74, 0.2);
-      }
-
-      .plano-badge.recommend {
-        background: #ffe66d;
-        border-color: rgba(12, 79, 97, 0.2);
-        letter-spacing: 0.05em;
-      }
-
-      .plano-badge.presencial {
-        background: #7ee9ff;
-        border-color: rgba(12, 79, 97, 0.2);
-      }
-
-      .plano-body {
-        display: grid;
-        grid-template-columns: minmax(240px, 1fr) minmax(260px, 1fr);
-        gap: clamp(24px, 5vw, 64px);
-        align-items: start;
-      }
-
-      .plano-heading {
-        margin-bottom: 16px;
-      }
-
-      .plano-heading-main {
-        display: block;
-        font-size: clamp(1.35rem, 3vw, 1.9rem);
-        font-weight: 700;
-        color: #0c4f61;
-        text-transform: uppercase;
-        letter-spacing: 0.03em;
-        margin-bottom: 4px;
-      }
-
-      .plano-heading-secondary {
-        display: block;
-        font-size: clamp(1rem, 2.4vw, 1.25rem);
-        text-transform: uppercase;
-        color: #0c4f61;
-        letter-spacing: 0.08em;
-      }
-
-      .plano-event {
-        font-size: 0.98rem;
-        line-height: 1.6;
-        color: #0c4f61;
-        font-weight: 600;
-        margin-bottom: 16px;
-      }
-
-      .plano-description {
-        font-size: 0.98rem;
-        line-height: 1.6;
-        color: #2f4f60;
-        margin-bottom: 16px;
-      }
-
-      .plano-note {
-        font-size: 0.95rem;
-        line-height: 1.6;
-        color: #2f4f60;
-      }
-
-      .plano-includes h5 {
-        font-size: 0.92rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        margin-bottom: 14px;
-        color: #0c4f61;
-      }
-
-      .plano-includes ul {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 24px 0;
-        display: grid;
-        gap: 16px;
-      }
-
-      .plano-includes li {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        color: #0c4f61;
-        font-size: 0.95rem;
-        line-height: 1.55;
-      }
-
-      .plano-includes li::before {
-        content: "✓";
-        color: #0c4f61;
-        font-weight: 700;
-      }
-
-      .plano-lira-text {
-        display: inline;
-        line-height: 1.55;
-      }
-
-      .plano-cta {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 12px 24px;
-        border-radius: 999px;
-        background: #0c4f61;
-        color: #ffffff;
-        font-weight: 700;
-        text-decoration: none;
-        font-size: 0.95rem;
-        text-transform: uppercase;
-      }
-
-      .plano-price {
-        margin-top: 16px;
-        font-size: 1rem;
-        font-weight: 700;
-        color: #0c4f61;
-        text-align: center;
-        align-self: center;
-      }
-
-      .plano-includes {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .plano-includes .plano-cta {
-        align-self: center;
-        margin-top: clamp(16px, 3vw, 36px);
-        margin-bottom: 16px;
-      }
-
-      .kit-section {
-        margin-top: clamp(-120px, -10vw, -180px);
-        display: flex;
-        justify-content: center;
-        position: relative;
-        z-index: 2;
-      }
-
-      .kit-inner {
-        width: min(900px, 100%);
-        display: grid;
-        grid-template-columns: minmax(240px, 1fr) minmax(260px, 1fr);
-        gap: clamp(24px, 6vw, 80px);
-        align-items: center;
-      }
-
-      .kit-image img {
-        width: min(515px, 92vw);
-        height: auto;
-        display: block;
-        position: relative;
-        z-index: 3;
-      }
-
-      .kit-content h4 {
-        font-size: clamp(1.2rem, 2.6vw, 1.6rem);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        color: #0c4f61;
-        margin-bottom: 14px;
-      }
-
-      .kit-content h4 span {
-        display: block;
-      }
-
-      .kit-content p {
-        font-size: 0.95rem;
-        color: #0c4f61;
-        margin-bottom: 10px;
-      }
-
-      .kit-content ul {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 12px 0;
-        display: grid;
-        gap: 8px;
-        color: #0c4f61;
-        font-size: 0.95rem;
-      }
-
-      .kit-content li::before {
-        content: "•";
-        margin-right: 8px;
-      }
-
-      .kit-footnote {
-        font-size: 0.85rem;
-        color: #0c4f61;
-      }
-
-      @media (max-width: 700px) {
-        .kit-inner {
-          grid-template-columns: 1fr;
-          text-align: center;
-          justify-items: center;
-        }
-
-        .kit-content ul {
-          justify-items: center;
-        }
-      }
-
-      @media (max-width: 700px) {
-        .plano-body {
-          grid-template-columns: 1fr;
-        }
-
-        .plano-badge {
-          left: 20px;
-        }
-      }
-
-      @media (max-width: 900px) {
-        .faixa-quem-grid {
-          grid-template-columns: repeat(2, minmax(160px, 1fr));
-        }
-
-        .faixa-quem-item {
-          grid-column: auto;
-        }
-      }
-
-      @media (max-width: 600px) {
-        .faixa-quem-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      footer {
-        padding: 2rem;
-        text-align: center;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header>
@@ -1204,46 +374,224 @@
           </div>
         </div>
       </section>
+
+      <section class="lira-section">
+        <h3>E se o método pudesse responder?</h3>
+        <p>
+          Há algo novo a acontecer dentro do <strong>AUTOCURA</strong>.<br />
+          Algo que responde.<br />
+          Algo que orienta.<br />
+          Chama-se <strong>LIRA</strong>.
+        </p>
+      </section>
+
+      <section class="presencial-online">
+        <h3>Presencial ou online?</h3>
+        <p>
+          Presencial é corpo.<br />
+          É energia.<br />
+          É celebração com música e partilha.<br />
+          Online é acesso.<br />
+          É presença à distância.<br />
+          É acompanhar mesmo não podendo estar fisicamente.<br />
+          Ambos são válidos.<br />
+          Mas são experiências diferentes.
+        </p>
+      </section>
+
+      <section class="testimonials-section">
+        <h3>Testemunhos</h3>
+        <div class="testimonials-carousel">
+          <button class="testimonial-arrow" type="button" aria-label="Anterior">‹</button>
+          <div class="testimonial-card video-wrapper">
+            <video class="testimonial-video" preload="metadata"></video>
+            <button class="video-play" type="button" aria-label="Reproduzir vídeo"></button>
+          </div>
+          <button class="testimonial-arrow" type="button" aria-label="Seguinte">›</button>
+        </div>
+        <div class="testimonial-dots">
+          <span class="testimonial-dot active" data-index="0"></span>
+          <span class="testimonial-dot" data-index="1"></span>
+          <span class="testimonial-dot" data-index="2"></span>
+          <span class="testimonial-dot" data-index="3"></span>
+          <span class="testimonial-dot" data-index="4"></span>
+          <span class="testimonial-dot" data-index="5"></span>
+        </div>
+        <a class="testimonials-cta" href="#">Quero estar presente</a>
+      </section>
+
+      <section class="faq-section">
+        <h3>FAQ – Perguntas frequentes</h3>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>O replay fica disponível quanto tempo?</span>
+              <span class="faq-plus">+</span>
+            </div>
+            <div class="faq-answer">
+              Todos os Tickets têm acesso ao replay durante 1 ano inteiro, exceto o Ticket
+              normal online que tem 7 dias de replay.<br />
+              Porque alguns momentos não são para ver uma vez.<br />
+              São para revisitar quando a alma pede.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>O que está incluído no Kit Presencial?</span>
+              <span class="faq-plus">+</span>
+            </div>
+            <div class="faq-answer">
+              O Kit é uma memória física deste momento.<br />
+              Inclui:
+              <ul>
+                <li>Saco edição especial 25 anos</li>
+                <li>Livro AUTOCURA – O Método autografado</li>
+                <li>(No Ingresso Especial: 2 livros autografados)</li>
+                <li>Caderno terapêutico</li>
+                <li>Caneta 25 anos</li>
+                <li>Caneca 25 anos</li>
+              </ul>
+              Não está disponível para venda separadamente.<br />
+              É exclusivo de quem decide estar presente.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>O livro é entregue no dia?</span>
+              <span class="faq-plus">+</span>
+            </div>
+            <div class="faq-answer">
+              Sim.<br />
+              Se escolheres Presencial, recebes o teu livro no próprio dia — já autografado.<br />
+              Se escolheres o Ingresso Presencial Especial, recebes dois exemplares.<br />
+              Um pode ser teu.<br />
+              O outro… pode ser partilhado.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Posso mudar de modalidade depois de comprar?</span>
+              <span class="faq-plus">+</span>
+            </div>
+            <div class="faq-answer">
+              Se sentires que queres aproximar-te mais (por exemplo, passar para Especial
+              ou para Presencial), poderás fazer upgrade mediante disponibilidade.<br />
+              Porque às vezes o coração decide depois.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Há reembolso?</span>
+              <span class="faq-plus">+</span>
+            </div>
+            <div class="faq-answer">
+              Os ingressos não são reembolsáveis.<br />
+              Mas podes transferir o teu lugar para outra pessoa, se não puderes estar.<br />
+              E se escolheres modalidade com replay, o momento continuará disponível para ti.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Este evento é só para quem já fez AUTOCURA?</span>
+              <span class="faq-plus">+</span>
+            </div>
+            <div class="faq-answer">
+              Não.<br />
+              É para quem já caminhou.<br />
+              É para quem está a começar.<br />
+              É para quem sente que quer estar.<br />
+              Não é técnico.<br />
+              É vivencial.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Qual a diferença entre Presencial e Online?</span>
+              <span class="faq-plus">+</span>
+            </div>
+            <div class="faq-answer">
+              Presencial é corpo.<br />
+              É energia partilhada.<br />
+              É celebração com música, olhar, toque e presença.<br />
+              Online é acesso.<br />
+              É estar mesmo à distância.<br />
+              É acompanhar mesmo que a vida não permita deslocação.<br />
+              Ambos são válidos.<br />
+              Mas são experiências diferentes.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Porque existe um ingresso Especial?</span>
+              <span class="faq-plus">+</span>
+            </div>
+            <div class="faq-answer">
+              Porque algumas pessoas sabem que querem viver este momento mais de perto.<br />
+              Primeiras filas.<br />
+              Entrada antecipada.<br />
+              Encontro online exclusivo com a Alex.<br />
+              Dois livros.<br />
+              Replay.<br />
+              Áudio da meditação.<br />
+              Não é sobre estatuto.<br />
+              É sobre profundidade.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>As vagas presenciais são limitadas?</span>
+              <span class="faq-plus">+</span>
+            </div>
+            <div class="faq-answer">
+              Sim.<br />
+              O espaço é limitado.<br />
+              E este encontro pede qualidade de presença, não quantidade.<br />
+              Quando esgotar, esgotou.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>A que horas começa e termina?</span>
+              <span class="faq-plus">+</span>
+            </div>
+            <div class="faq-answer">
+              A abertura acontece às 15h30.<br />
+              A Alex entra às 16h00.<br />
+              Terminamos por volta das 18h, e depois celebração e convívio... e autógrafos.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>E se eu estiver online... vou sentir o mesmo?</span>
+              <span class="faq-plus">+</span>
+            </div>
+            <div class="faq-answer">
+              Não será igual.<br />
+              Mas será verdadeiro.<br />
+              Porque a Conexão não depende de geografia.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>O que é a LIRA?</span>
+              <span class="faq-plus">+</span>
+            </div>
+            <div class="faq-answer">
+              A LIRA é a inteligência viva do AUTOCURA.<br />
+              Tal como o instrumento associado aos anjos — símbolo de harmonia, luz e consciência —
+              a LIRA transforma tensão em direção clara.<br />
+              Tu colocas a tua questão — um sintoma, uma emoção, um bloqueio —<br />
+              e a LIRA indica, de forma imediata, como aplicar o método AUTOCURA.<br />
+              Simples. Direto. Luminoso.
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
       <!-- Footer em branco: adicione conteúdo aqui -->
     </footer>
-
-    <script>
-      const videoWrapper = document.getElementById("focus-video");
-      const heroVideo = videoWrapper?.querySelector("video");
-      const playButton = videoWrapper?.querySelector(".video-play");
-
-      if (heroVideo && playButton) {
-        const togglePlay = () => {
-          if (heroVideo.paused) {
-            heroVideo.play();
-            videoWrapper.classList.add("playing");
-          } else {
-            heroVideo.pause();
-            videoWrapper.classList.remove("playing");
-          }
-        };
-
-        playButton.addEventListener("click", togglePlay);
-        heroVideo.addEventListener("pause", () =>
-          videoWrapper.classList.remove("playing"),
-        );
-        heroVideo.addEventListener("ended", () =>
-          videoWrapper.classList.remove("playing"),
-        );
-        heroVideo.addEventListener("play", () =>
-          videoWrapper.classList.add("playing"),
-        );
-
-        // Click on video to pause
-        heroVideo.addEventListener("click", () => {
-          if (!heroVideo.paused) {
-            heroVideo.pause();
-          }
-        });
-      }
-    </script>
+    <script src="scripts.js"></script>
   </body>
 </html>
