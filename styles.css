@@ -692,10 +692,11 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   padding: 12px 24px;
   border-radius: 999px;
-  background: #0c4f61;
-  color: #ffffff;
+  background: #104f61;
+  color: #fff8da;
   font-weight: 700;
   text-decoration: none;
   font-size: 0.95rem;
@@ -833,6 +834,26 @@ main {
   padding: clamp(40px, 7vw, 90px) clamp(24px, 6vw, 80px);
   text-align: center;
   color: #0c4f61;
+  position: relative;
+  overflow: hidden;
+}
+
+.presencial-graphic {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(154px, 26.4vw, 352px);
+  height: auto;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.presencial-graphic.presencial-left {
+  left: 0;
+}
+
+.presencial-graphic.presencial-right {
+  right: 0;
 }
 
 .presencial-online h3 {
@@ -1051,6 +1072,156 @@ main {
 }
 
 @media (max-width: 900px) {
+  header {
+    height: auto;
+    padding: 24px 32px;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .header-ornament {
+    max-height: 60%;
+    opacity: 0.6;
+  }
+
+  .header-logo {
+    width: clamp(220px, 60vw, 320px);
+  }
+
+  .hero-text {
+    margin-left: 0;
+  }
+
+  .video-placeholder {
+    margin: 20px auto 28px;
+  }
+
+  .historico-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .historico-text {
+    text-align: center;
+    align-items: center;
+  }
+
+  .historico-book {
+    width: min(520px, 90%);
+    margin: 0 auto;
+  }
+
+  .faixa-content,
+  .faixa-book {
+    flex-direction: column;
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .faixa-left,
+  .faixa-right,
+  .faixa-book article {
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .planos-section {
+    padding: clamp(36px, 8vw, 96px) 20px;
+  }
+
+  .plano-card {
+    width: 100%;
+  }
+
+  .presencial-graphic {
+    width: clamp(120px, 28vw, 240px);
+  }
+
+  .testimonials-carousel {
+    grid-template-columns: auto minmax(200px, 1fr) auto;
+  }
+
+  .invite-card {
+    width: min(560px, 100%);
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 20px 16px;
+  }
+
+  .hero-text h1 {
+    font-size: 1.4rem;
+  }
+
+  .hero-text h2 {
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+  }
+
+  .cta-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .faixa-left .cta-btn {
+    align-self: center;
+  }
+
+  .video-play {
+    width: 64px;
+    height: 64px;
+  }
+
+  .video-play::before {
+    width: 48px;
+    height: 48px;
+  }
+
+  .historico-card {
+    margin: 32px auto -80px;
+    padding: 28px 20px;
+  }
+
+  .faixa-suave,
+  .planos-section,
+  .lira-section,
+  .presencial-online,
+  .testimonials-section,
+  .faq-section,
+  .invite-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .plano-badges {
+    left: 20px;
+  }
+
+  .kit-section {
+    margin-top: -80px;
+  }
+
+  .presencial-graphic {
+    width: clamp(110px, 34vw, 200px);
+  }
+
+  .testimonial-arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 1.1rem;
+  }
+
+  .invite-logo {
+    width: clamp(200px, 60vw, 280px);
+  }
+}
+
+@media (max-width: 900px) {
   .faixa-quem-grid {
     grid-template-columns: repeat(2, minmax(160px, 1fr));
   }
@@ -1062,7 +1233,19 @@ main {
 
 @media (max-width: 600px) {
   .faixa-quem-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .faixa-quem-item {
+    max-width: 160px;
+    text-align: center;
+    justify-self: center;
+  }
+
+  .faixa-quem-item:nth-child(4),
+  .faixa-quem-item:nth-child(5) {
+    grid-column: auto;
   }
 }
 
